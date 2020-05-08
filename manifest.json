@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "TMX Downloader",
+  "description": "Download TMX tracks by batches",
+  "version": "1.0",
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Download tracks"
+  },
+  "content_scripts": [{
+    "matches": [
+      "http://tmnforever.tm-exchange.com/*",
+      "https://tmnforever.tm-exchange.com/*"
+    ],
+    "js": [
+      "script/jquery.js",
+      "script/content.js"
+    ]
+  }],
+  "background": {
+    "scripts": [
+      "script/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "tabs",
+    "downloads",
+    "http://tmnforever.tm-exchange.com/*",
+    "https://tmnforever.tm-exchange.com/*"
+  ]
+}
